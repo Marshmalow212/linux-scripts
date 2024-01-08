@@ -1,0 +1,40 @@
+Write
+
+Sign in
+Reduce Gigantic Title Bar on Ubuntu 20.04
+DevProgramming
+
+DevProgramming
+·
+
+Follow
+4 min read
+There are some extensions that might help you slim down or remove your title bar. You can test those extensions, which can be found in the Gnome Extension Store, however, some of them are not Wayland compatible.
+MODIFICATION OF GTK
+
+In this step, You can slim down your Ubuntu’s Title Bar by inserting some code in the GTK folder. You can modify that in just two steps.
+
+    Create a file named gtk.css in Config folder
+
+nano gtk.css ~/.config/gtk-3.0/
+
+insert the code in gtk.css file and save it
+
+headerbar entry,
+headerbar spinbutton,
+headerbar button,
+headerbar separator {
+    margin-top: 0px; /* same as headerbar side padding for nicer proportions */
+    margin-bottom: 0px;
+}
+
+headerbar {
+    min-height: 24px;
+    padding-left: 2px; /* same as childrens vertical margins for nicer proportions */
+    padding-right: 2px;
+    margin: 0px; /* same as headerbar side padding for nicer proportions */
+    padding: 0px;
+  }
+
+
+
