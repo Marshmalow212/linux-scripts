@@ -1,3 +1,24 @@
+file=`which wget`
+if [ ! $file ];then
+sudo apt install wget -y 
+
+else echo "$file";
+fi
+
+file=`which nginx`
+if [ ! $file ];then
+sudo apt install nginx -y 
+
+else echo "$file";
+fi
+
+file=`nvm -v`
+if [ ! $file ];then
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+else echo "$file";
+fi
+
 file=`which pluma`
 if [ ! $file ];then
 sudo apt install pluma -y 
@@ -38,6 +59,13 @@ fi
 file=`which mc`
 if [ ! $file ];then
 sudo apt install mc
+
+else echo "$file installed";
+fi
+
+file=`which gnome-tweaks`
+if [ ! $file ];then
+sudo apt install gnome-tweaks
 
 else echo "$file installed";
 fi

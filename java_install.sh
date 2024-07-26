@@ -1,36 +1,42 @@
 if [ ! `which java` ];then
-while getopts :f: flag
+while getopts :u:f:v: flag
 do
     case "${flag}" in
-        f) file=${OPTARG}
+        f) file=$OPTARG ;;
+        u) url=$OPTARG ;;
+        v) ver=$OPTARG ;;
     esac
 done
 
 if [ $file ];then
 wget $file
+
+elif [ $url ];then
+wget $url
 fi
+
+if [ $ver ];then
+newdir="java-${ver}"
 
 sudo apt-get purge openjdk-\* -y &&
 
-sudo mkdir /usr/bin/java &&
+sudo mkdir "/usr/lib/jvm/$newdir" -v &&
+
+javadir="/usr/lib/jvm/$newdir/"
 
 mkdir java &&
 
 tar -zxf jdk*.tar.gz --directory java/ -v &&
 
-sudo cp -r java/jdk*/* /usr/bin/java/ -v &&
+sudo cp -r java/jdk*/* "$javadir" -v &&
 
 sudo nano /etc/profile &&
 
 . /etc/profile &&
 
-sudo update-alternatives --install "/usr/bin/java" "java" "/usr/bin/java/bin/java" 1 &&
+sudo update-alternatives --install "/usr/bin/java" "java" "${javadir}bin/java" 1 &&
 
-sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/bin/java/bin/javac" 1 &&
-
-sudo update-alternatives --set java /usr/bin/java/bin/java &&
-
-sudo update-alternatives --set javac /usr/bin/java/bin/javac &&
+sudo update-alternatives --install "/usr/bin/javac" "javac" "${javadir}bin/javac" 1 &&
 
 rm -rf java jdk*
 
