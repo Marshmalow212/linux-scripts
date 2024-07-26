@@ -1,6 +1,5 @@
 if [ ! `which php`];then
 echo "install php first"; 
-sudo apt install php -y 
 
 else
 echo "php is installed"; 
