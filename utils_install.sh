@@ -58,14 +58,14 @@ fi
 
 file=`which mc`
 if [ ! $file ];then
-sudo apt install mc
+sudo apt install mc -y
 
 else echo "$file installed";
 fi
 
 file=`which gnome-tweaks`
 if [ ! $file ];then
-sudo apt install gnome-tweaks
+sudo apt install gnome-tweaks -y
 
 else echo "$file installed";
 fi
