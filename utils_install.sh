@@ -42,23 +42,3 @@ sudo apt install mc
 else echo "$file installed";
 fi
 
-file=`which skype`
-if [ ! $file ];then
-sudo snap install skype
-
-else echo "$file installed";
-fi
-
-file=`which slack`
-if [ ! $file ];then
-sudo snap install slack
-
-else echo "$file installed";
-fi
-
-file=`which postman`
-if [ ! $file ];then
-sudo snap install postman
-
-else echo "$file installed";
-fi
