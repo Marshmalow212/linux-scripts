@@ -12,6 +12,13 @@ sudo apt install nginx -y
 else echo "$file";
 fi
 
+file=`which git`
+if [ ! $file ];then
+sudo apt install git -y 
+
+else echo "$file";
+fi
+
 file=`nvm -v`
 if [ ! $file ];then
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
