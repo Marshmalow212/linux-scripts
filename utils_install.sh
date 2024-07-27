@@ -48,14 +48,6 @@ echo `which vlc`
 else echo "$file";
 fi
 
-file=`which code`
-if [ ! $file ];then
-sudo snap install code --classic
-echo `which code`
-
-else echo "$file";
-fi
-
 file=`which libreoffice`
 if [ ! $file ];then
 sudo snap install libreoffice
