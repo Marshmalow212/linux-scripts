@@ -18,7 +18,7 @@ fi
 if [ $ver ];then
 newdir="java-${ver}"
 
-sudo apt-get purge openjdk-\* -y &&
+sudo apt purge openjdk-\* -y &&
 
 sudo mkdir "/usr/lib/jvm/$newdir" -v &&
 
